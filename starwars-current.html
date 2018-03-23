@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.css">
+</head>
+
+<style>
+    body {
+        background-image: url("assets/images/battlestar-galactica-background.jpg");
+        height: 100%;
+        width: 100%;
+     }
+
+    h1, h2, h3, h4, h5 {
+        font-family: fantasy;
+        color: lightgray;
+    }
+
+    .button {
+        font-family: fantasy;
+    }
+     
+     
+
+    .card-container {
+        width: 150px;
+        height: 150px;
+        border: cadetblue;
+        border-style: solid;
+        border-width: thick;
+        background-color: lightgray;
+        float: left;
+    }
+
+    .card-images {
+        width:75px;
+       height:75px;
+       position: relative;
+        margin-left: 22%;
+    }
+
+    .card-name {
+        font-family: fantasy;
+        font-size: 25px;
+
+    }
+
+    .card-stat {
+        font-family: fantasy;
+    color: red;
+    font-weight: bolder;
+    position: relative;
+    margin-left: 115px;
+}
+
+#chosen-character {
+    height:150px;
+    
+}
+
+#available-characters {
+    height:150px;
+    
+}
+#defending-character {
+    height:150px;
+    
+}
+
+    #attack {
+        font-family: fantasy;
+    }
+
+
+   
+</style>
+
+
+
+<body>
+  <div class="row">
+  <div class="col-6"></div>
+    <div class="col-6" id="game-title">
+      <h1>BATTLESTAR GALACTICA RPG!</h1>
+      </div>
+  </div>
+    <!-- ROW 1 -->
+    <div class="row">
+        <div class="col-1"></div>
+        <div id="character-selection" class="col-11">
+        
+        </div>
+    </div>
+
+
+    <!-- ROW 2 -->
+    
+    <div id="your-character" class="row">
+        <div class="col-2"></div>
+        <h2> YOUR CHARACTER</h2>
+    </div> 
+    <div class="row" "character-rows" id="chosen-character"> </div>
+    
+    <!-- ROW 3 -->
+    
+    <div id="available-enemies" class="row">
+        <div class="col-2"></div>
+        <h2> ENEMIES AVAILABLE TO ATTACK</h2>
+    </div>
+        <div class="row" "character-rows" id="available-characters"> </div>
+   
+
+
+    <!-- ROW 4 -->
+   
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <div class="row">
+            <h2>FIGHT SECTION</h2>
+            </div>
+            <div class="row">
+        <button id="attack">ATTACK</button>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+
+    <!-- ROW 5 -->
+    
+    <div id="defender" class="row">
+        <div class="col-2"></div>
+        <h2> DEFENDER</h2>
+    </div>
+        <div class="row" id="defending-character"> </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+//create objects for each character
+        var characters = [
+            {
+                name:"starbuck",
+                health:50,
+                attack:30,
+                image:"assets/images/starbuck.png",
+            },
+
+            {
+                name:"apollo",
+                health:75,
+                attack:20,
+                image:"assets/images/apollo.jpg",
+            },
+
+            {
+                name:"athena",
+                health:50,
+                attack:30,
+                image:"assets/images/athena.jpg",
+            },
+
+            {
+                name:"helo",
+                health:60,
+                attack:25,
+                image:"assets/images/helo.jpg",
+            },
+
+        ]
+
+        //card builder function
+        function buildCard({name="cylon", health, image=""},id){
+            return `
+                <div id="${name}-container" class="card-container">
+                <div id="name-${name}" class="card-name">${name}</div>
+                <img class="card-images" src="${image}" alt="oops" id="card-image">
+                <div id="${name}-stat" class="card-stat">${health}</div>
+                </div>
+            `
+        }
+
+        $("#character-selection").html(characters.map(buildCard).join(""))
+
+
+        function starbuckClick() {
+            alert("starbuck click")
+        }
+
+        function apolloClick() {
+            alert("apollo click")
+        }
+        function starbuckClick() {
+            alert("starbuck click")
+        }
+        function starbuckClick() {
+            alert("starbuck click")
+        }
+
+$('#starbuck-container').on('click', starbuckClick)
+$('#apollo-container').on('click', apolloClick)
+$('#athena-container').on('click', athenaClick)
+$('#helo-container').on('click', heloClick)
+
+
+
+    </script>
+</body>
+
+</html>
