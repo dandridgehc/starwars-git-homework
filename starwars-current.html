@@ -168,6 +168,7 @@
                 health:50,
                 attack:30,
                 image:"assets/images/starbuck.png",
+                attacker:false,
             },
 
             {
@@ -175,6 +176,7 @@
                 health:75,
                 attack:20,
                 image:"assets/images/apollo.jpg",
+                attacker:false,
             },
 
             {
@@ -182,6 +184,7 @@
                 health:50,
                 attack:30,
                 image:"assets/images/athena.jpg",
+                attacker:false,
             },
 
             {
@@ -189,6 +192,7 @@
                 health:60,
                 attack:25,
                 image:"assets/images/helo.jpg",
+                attacker:false,
             },
 
         ]
@@ -203,28 +207,80 @@
                 </div>
             `
         }
+//makes cards from string
+   console.log($("#character-selection").html(characters.map(buildCard).join("")))
 
-        $("#character-selection").html(characters.map(buildCard).join(""))
+characters.map(function(character){
+    
+            function clickCharacter(clickedChar) {
+            alert(character.name)
+            }
+
+    $(`#${character.name}-container`).on('click', clickCharacter)
+
+})
 
 
-        function starbuckClick() {
-            alert("starbuck click")
-        }
+var gameStart = false
+var yourCharacter = undefined
+var defendingCharacter = ""
+var availableCharacters = []
 
-        function apolloClick() {
-            alert("apollo click")
-        }
-        function starbuckClick() {
-            alert("starbuck click")
-        }
-        function starbuckClick() {
-            alert("starbuck click")
-        }
+// first character
 
-$('#starbuck-container').on('click', starbuckClick)
-$('#apollo-container').on('click', apolloClick)
-$('#athena-container').on('click', athenaClick)
-$('#helo-container').on('click', heloClick)
+// for (var i = 0; i < characters.length; i++) {
+//     var newCharacter = $('<div class="initial-characters">' + characters[i].name + '</div>')
+//     newCharacter.attr('data-name', characters[i].name)
+//     $('#character-selection').append(newCharacter)
+//   }
+
+
+//   function displayAttacker(){
+//     $('#chosen-character').empty()
+//     for (var i = 0; i < characters.length; i++) {
+//       if (characters[i].attacker == true){
+//         var newCharacter = $('<div>' + characters[i].name + '</div>')
+//         $('#chosen-character').append(newCharacter)
+//       }
+//     }
+//   }
+
+//   function displayDefenders(){
+//     $('#available-characters').empty()
+//     for (var i = 0; i < characters.length; i++) {
+//       if (characters[i].attacker == false){
+//         var newDefenders = $('<div class="defenders">' + characters[i].name + '</div>')
+//         newDefenders.attr('data-name', characters[i].name)
+//         $('#available-characters').append(newDefenders)
+//       }
+//     }
+//   }
+
+
+// // click event to choose a attacker. Anyone who is not a attacker becomes available to choose as a defender
+//   $(document).on('click', '.initial-characters', function(){
+//     var name = $(this).attr("data-name")
+//     for (var i = 0; i < characters.length; i++) {
+//       if (characters[i].name == name){
+//         characters[i].attacker = true
+//       }
+//     }
+
+//     displayAttacker()
+//     displayDefenders()
+//   })
+
+// // click event to choose a defender
+//   $(document).on('click', '.defenders', function(){
+//     var name = $(this).attr("data-name")
+//     console.log(name);
+//   })
+
+
+// 
+
+
+
 
 
 
